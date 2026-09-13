@@ -21,7 +21,12 @@ const PRODUCTS = [
     tagline: "Signature drop-shoulder silhouette",
     description: "A striking embroidered charizard breathing fire across the chest, blending bold orange, red, and green threadwork for a fierce statement on classic black.",
     embroidery: "High-density micro-thread embroidery (aprrox 10,000 stitches) across center chest.",
-    sizes: ["S", "M"],
+    sizes: {
+    "S": 2,
+    "M": 2,
+    "L": 0,
+    "XL": 0
+    },
     colors: ["BLACK"],
     featured: true,
     images: [
@@ -44,7 +49,12 @@ const PRODUCTS = [
     tagline: "Phoenix back artwork",
     description: "240 Heavyweight oversized tee featuring an abstract phoenix motif embroidered with metallic red thread. Built for daily wear.",
     embroidery: "Made with more than 50,000 individual stiches, taking more than 3 hours per piece.",
-    sizes: ["S", "M"],
+    sizes: {
+    "S": 1,
+    "M": 2,
+    "L": 0,
+    "XL": 1
+    },
     colors: ["BLACK"],
     featured: true,
     images: [
@@ -64,7 +74,12 @@ const PRODUCTS = [
     tagline: "430 GSM Cotton brushed",
     description: "A premium black hoodie featuring a bold, fiery phoenix embroidery across the back. Rich red, orange, and gold tones create a striking rebirth-inspired design with a powerful streetwear aesthetic.",
     embroidery: "Made with more than 50,000 individual stiches, taking more than 3 hours per piece.",
-    sizes: ["S", "M", "L", "XL"],
+    sizes: {
+    "S": 2,
+    "M": 2,
+    "L": 0,
+    "XL": 0
+    },
     colors: ["Pitch Black"],
     featured: true,
     images: [
@@ -84,7 +99,12 @@ const PRODUCTS = [
     tagline: "Clean retro-techno embroidery",
     description: "Oversized black T-shirt featuring a hand-inspired cherry blossom embroidery, with a larger statement branch across the back and a smaller matching bloom on the front.",
     embroidery: "Direct flat-needle embroidery with approximately 70,000 stiches.",
-    sizes: ["S", "M", "L", "XL"],
+    sizes: {
+    "S": 1,
+    "M": 1,
+    "L": 0,
+    "XL": 0
+    },
     colors: ["Black"],
     featured: false,
     images: [
@@ -106,7 +126,12 @@ const PRODUCTS = [
     tagline: "Raw-edge contrast stitch design",
     description: "Brushed fleece pullover hoodie in deep stone gray. Embellished with heavy contrast chain-stitch detailing running down the sleeves and back yoke.",
     embroidery: "Chain-stitch structural embroidery and left breast minimalist emblem.",
-    sizes: ["M", "L", "XL"],
+    sizes: {
+    "S": 2,
+    "M": 2,
+    "L": 0,
+    "XL": 0
+    },
     colors: ["Stone Gray"],
     featured: true,
     images: [
@@ -126,7 +151,12 @@ const PRODUCTS = [
     tagline: "Midnight botanical needlework",
     description: "Oversized silhouette cut from 220 GSM combed cotton. Intricate dark flora motif rendered in high-density matte black thread for a covert, light-reactive look.",
     embroidery: "Complex 14,000 stitch matte tonal needlework across the upper back.",
-    sizes: ["S", "M", "L", "XL"],
+    sizes: {
+    "S": 2,
+    "M": 2,
+    "L": 0,
+    "XL": 0
+    },
     colors: ["Faded Black"],
     featured: false,
     images: [
@@ -146,7 +176,12 @@ const PRODUCTS = [
     tagline: "Subtle sleeve typography",
     description: "Boxy fit, kangaroo pocket with reinforced bar-tacks. Fine-line Japanese tatami embroidery detailing along the right forearm and interior hood seam.",
     embroidery: "Tatami stitch geometric patterns and dense sleeve typography.",
-    sizes: ["M", "L", "XL"],
+    sizes: {
+    "S": 2,
+    "M": 2,
+    "L": 0,
+    "XL": 0
+    },
     colors: ["Washed Olive"],
     featured: false,
     images: [
@@ -166,7 +201,12 @@ const PRODUCTS = [
     tagline: "Solar disc continuous needlework",
     description: "Heavyweight streetwear cut with dropped shoulders. Front features a circular lunar eclipse rendered in graduated density black-on-charcoal thread.",
     embroidery: "Continuous gradient-density circular embroidery on center torso.",
-    sizes: ["S", "M", "L", "XL"],
+    sizes: {
+    "S": 2,
+    "M": 2,
+    "L": 0,
+    "XL": 0
+    },
     colors: ["Vintage Charcoal"],
     featured: false,
     images: [

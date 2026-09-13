@@ -581,6 +581,21 @@ button {
   background-color: var(--text-primary);
   color: var(--bg-primary);
   border-color: var(--text-primary);
+  
+}
+
+/* Out of stock size */
+.size-btn.out-of-stock {
+  position: relative;
+  color: var(--text-muted);
+  border-color: var(--border-subtle);
+  cursor: not-allowed;
+  opacity: 0.55;
+  text-decoration: line-through;
+}
+
+.size-btn.out-of-stock:hover {
+  border-color: var(--border-subtle);
 }
 
 .color-chip {
@@ -1042,4 +1057,17 @@ button {
   .custom-visual {
     min-height: 320px;
   }
+}
+
+.stock-message {
+  margin-top: 0.75rem;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+  min-height: 1.2em;
+}
+
+.stock-message.low-stock {
+  color: var(--text-primary);
+  font-weight: 600;
 }

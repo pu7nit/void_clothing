@@ -78,26 +78,79 @@ function renderProductPage(product) {
   }
 
   // State: selected size
-  let selectedSize = product.sizes && product.sizes.length > 0 ? product.sizes[0] : "Standard";
+const sizeEntries = product.sizes
+  ? Object.entries(product.sizes)
+  : [];
 
-  // Size buttons setup
-  if (sizeSelectorEl && product.sizes) {
-    sizeSelectorEl.innerHTML = product.sizes.map((size, idx) => `
-      <button class="size-btn ${idx === 0 ? 'active' : ''}" data-size="${size}" type="button">
+let selectedSize = null;
+
+const stockMessageEl = document.getElementById("stock-message");
+
+function updateStockMessage() {
+  if (!stockMessageEl || !selectedSize || !product.sizes) return;
+
+  const stock = product.sizes[selectedSize] || 0;
+
+  if (stock === 0) {
+    stockMessageEl.textContent = "";
+    stockMessageEl.classList.remove("low-stock");
+  } 
+  else if (stock <= 3) {
+    stockMessageEl.textContent =
+      `Only ${stock} ${stock === 1 ? "item" : "items"} left in stock`;
+    stockMessageEl.classList.add("low-stock");
+  } 
+  else {
+    stockMessageEl.textContent = "";
+    stockMessageEl.classList.remove("low-stock");
+  }
+}
+
+// Size buttons setup
+if (sizeSelectorEl && sizeEntries.length > 0) {
+
+  sizeSelectorEl.innerHTML = sizeEntries.map(([size, stock], idx) => {
+    const isAvailable = stock > 0;
+
+    return `
+      <button
+        class="size-btn ${isAvailable && idx === sizeEntries.findIndex(([_, qty]) => qty > 0) ? 'active' : ''} ${!isAvailable ? 'out-of-stock' : ''}"
+        data-size="${size}"
+        type="button"
+        ${!isAvailable ? 'disabled' : ''}
+      >
         ${size}
       </button>
-    `).join("");
+    `;
+  }).join("");
 
-    const sizeBtns = sizeSelectorEl.querySelectorAll(".size-btn");
-    sizeBtns.forEach(btn => {
-      btn.addEventListener("click", () => {
-        sizeBtns.forEach(b => b.classList.remove("active"));
-        btn.classList.add("active");
-        selectedSize = btn.getAttribute("data-size");
-        updateActionLinks();
-      });
-    });
+  // Select the first available size automatically
+  const firstAvailable = sizeEntries.find(([_, stock]) => stock > 0);
+
+  if (firstAvailable) {
+    selectedSize = firstAvailable[0];
   }
+
+  const sizeBtns = sizeSelectorEl.querySelectorAll(".size-btn");
+
+  sizeBtns.forEach(btn => {
+
+    btn.addEventListener("click", () => {
+
+      if (btn.disabled) return;
+
+      sizeBtns.forEach(b => b.classList.remove("active"));
+
+      btn.classList.add("active");
+
+      selectedSize = btn.getAttribute("data-size");
+      updateStockMessage();
+
+      updateActionLinks();
+    });
+
+  });
+}
 
   // Dynamic prefilled WhatsApp & Email generator
   function updateActionLinks() {
