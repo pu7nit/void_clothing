@@ -821,3 +821,225 @@ button {
     padding: 0.75rem;
   }
 }
+
+/* ==========================================================================
+   Custom Embroidery Section
+   ========================================================================== */
+
+.custom-section {
+  padding: 6rem 0;
+  background-color: var(--bg-primary);
+  border-top: 1px solid var(--border-subtle);
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.custom-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 5rem;
+  align-items: center;
+}
+
+.custom-content {
+  max-width: 680px;
+}
+
+.custom-title {
+  font-size: clamp(2.4rem, 5vw, 4rem);
+  font-weight: 800;
+  line-height: 1.02;
+  letter-spacing: -0.035em;
+  text-transform: uppercase;
+  margin: 1rem 0 1.5rem;
+}
+
+.custom-description {
+  max-width: 600px;
+  color: var(--text-secondary);
+  font-size: 1.05rem;
+  line-height: 1.7;
+  margin-bottom: 2.5rem;
+}
+
+.custom-features {
+  display: flex;
+  flex-direction: column;
+  border-top: 1px solid var(--border-subtle);
+  margin-bottom: 2.5rem;
+}
+
+.custom-feature {
+  display: grid;
+  grid-template-columns: 50px 1fr;
+  gap: 1rem;
+  padding: 1.25rem 0;
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.custom-feature-number {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  color: var(--text-muted);
+  padding-top: 0.15rem;
+}
+
+.custom-feature h3 {
+  font-size: 0.9rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-bottom: 0.25rem;
+}
+
+.custom-feature p {
+  color: var(--text-muted);
+  font-size: 0.82rem;
+  line-height: 1.5;
+}
+
+.custom-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+/* Visual panel */
+
+.custom-visual {
+  min-height: 500px;
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  position: relative;
+  overflow: hidden;
+}
+
+.custom-visual::before {
+  content: "CUSTOM";
+  position: absolute;
+  top: 1.5rem;
+  left: 1.5rem;
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  letter-spacing: 0.18em;
+  color: var(--text-muted);
+}
+
+.custom-visual::after {
+  content: "VOID / CUSTOM EMBROIDERY";
+  position: absolute;
+  bottom: 1.5rem;
+  right: 1.5rem;
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  letter-spacing: 0.12em;
+  color: var(--text-muted);
+}
+
+.custom-visual-inner {
+  position: absolute;
+  inset: 3rem;
+  border: 1px solid var(--border-medium);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.custom-stitch-line {
+  width: 70%;
+  height: 1px;
+  background-color: var(--border-medium);
+  position: relative;
+}
+
+.custom-stitch-line::before,
+.custom-stitch-line::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  width: 6px;
+  height: 6px;
+  border: 1px solid var(--text-muted);
+  background-color: var(--bg-surface);
+  transform: translateY(-50%);
+}
+
+.custom-stitch-line::before {
+  left: 0;
+}
+
+.custom-stitch-line::after {
+  right: 0;
+}
+
+.custom-visual-text {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.25rem;
+}
+
+.custom-visual-text strong {
+  font-size: clamp(3rem, 6vw, 5rem);
+  line-height: 0.85;
+  letter-spacing: -0.06em;
+  font-weight: 800;
+}
+
+.custom-visual-caption {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  line-height: 1.6;
+  letter-spacing: 0.15em;
+  color: var(--text-muted);
+}
+
+
+/* Responsive */
+
+@media (max-width: 768px) {
+  .custom-section {
+    padding: 4rem 0;
+  }
+
+  .custom-grid {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+
+  .custom-visual {
+    min-height: 380px;
+  }
+
+  .custom-visual-inner {
+    inset: 2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .custom-title {
+    font-size: 2.4rem;
+  }
+
+  .custom-description {
+    font-size: 0.95rem;
+  }
+
+  .custom-feature {
+    grid-template-columns: 40px 1fr;
+  }
+
+  .custom-actions {
+    flex-direction: column;
+  }
+
+  .custom-actions .btn {
+    width: 100%;
+  }
+
+  .custom-visual {
+    min-height: 320px;
+  }
+}
