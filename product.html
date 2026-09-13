@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Product Details — VOID</title>
+  <meta name="description" content="Product specifications, embroidery details, and direct order options for VOID.">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Navigation -->
+  <header class="site-header">
+    <div class="container nav-wrapper">
+      <a href="index.html" class="brand-logo">VOID</a>
+      <button class="nav-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+        <span></span>
+        <span></span>
+      </button>
+      <nav>
+        <ul class="nav-links">
+          <li><a href="index.html" class="nav-link">Home</a></li>
+          <li><a href="shop.html" class="nav-link">Shop</a></li>
+          <li><a href="about.html" class="nav-link">About</a></li>
+          <li><a href="contact.html" class="nav-link">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="container">
+      <div style="padding-top: 1.5rem;">
+        <a href="shop.html" class="view-all-link">← Back to Catalog</a>
+      </div>
+
+      <div class="product-detail-layout">
+        <!-- Interactive Gallery -->
+        <div class="gallery-container">
+          <div class="main-image-frame">
+            <img id="main-product-image" src="" alt="Product image" />
+          </div>
+          <div id="thumbnail-row" class="thumbnail-row"></div>
+        </div>
+
+        <!-- Product Specs & Ordering -->
+        <div class="product-info-panel">
+          <div class="product-headline-group">
+            <span id="product-category" class="mono-tag"></span>
+            <h1 id="product-title" class="product-page-title">Loading...</h1>
+            <div id="product-price" class="product-page-price"></div>
+          </div>
+
+          <!-- Description -->
+          <div class="selection-group">
+            <div class="selection-label"><span>Description</span></div>
+            <p id="product-desc" style="color: var(--text-secondary); line-height: 1.6; font-size: 0.95rem;"></p>
+          </div>
+
+          <!-- Colorway -->
+          <div class="selection-group">
+            <div class="selection-label"><span>Colorway</span></div>
+            <span id="product-color" class="color-chip"></span>
+          </div>
+
+          <!-- Size Selector -->
+          <div class="selection-group">
+            <div class="selection-label">
+              <span>Select Size</span>
+              <span>Oversized Fit</span>
+            </div>
+            <div id="size-selector" class="size-selector"></div>
+          </div>
+
+          <!-- Embroidery Specs -->
+          <div class="meta-box">
+            <h4>Embroidery Specifications</h4>
+            <p id="product-embroidery"></p>
+          </div>
+
+          <!-- WhatsApp & Email Actions -->
+          <div class="action-stack">
+            <a id="whatsapp-order-btn" href="#" class="btn btn-whatsapp">
+              Order via WhatsApp
+            </a>
+            <a id="email-order-btn" href="#" class="btn btn-outline">
+              Inquire via Email
+            </a>
+          </div>
+
+          <p class="order-note">
+            Direct local purchase: Clicking opens WhatsApp with your chosen item and size pre-filled. We will confirm availability and local delivery immediately.
+          </p>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-bottom">
+      <div>© <span id="current-year"></span> VOID Clothing.</div>
+      <div>Direct Orders Only</div>
+    </div>
+  </footer>
+
+  <script src="js/products.js"></script>
+  <script src="js/product.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

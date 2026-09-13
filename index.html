@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VOID — Modern Embroidered Streetwear</title>
+  <meta name="description" content="VOID is an independent clothing label focused on oversized embroidered T-shirts and heavyweight hoodies. Catalog for local sales.">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Navigation -->
+  <header class="site-header">
+    <div class="container nav-wrapper">
+      <a href="index.html" class="brand-logo" aria-label="VOID Home">VOID</a>
+      <button class="nav-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+        <span></span>
+        <span></span>
+      </button>
+      <nav>
+        <ul class="nav-links">
+          <li><a href="index.html" class="nav-link active">Home</a></li>
+          <li><a href="shop.html" class="nav-link">Shop</a></li>
+          <li><a href="about.html" class="nav-link">About</a></li>
+          <li><a href="contact.html" class="nav-link">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="container hero-content">
+        <span class="mono-tag">Collection 01 / Embroidered Heavyweights</span>
+        <h1 class="hero-headline">Heavyweight cuts.<br>Obsessive needlework.</h1>
+        <p class="hero-description">
+          An independent streetwear label crafting oversized T-shirts and hoodies with bold, tactile embroidery. Local delivery and direct customer orders via WhatsApp.
+        </p>
+        <div class="hero-actions">
+          <a href="shop.html" class="btn btn-primary">Explore Collection</a>
+          <a href="about.html" class="btn btn-outline">Our Story</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Notice Banner -->
+    <aside class="local-notice-strip">
+      <div class="container" style="display:flex; align-items:center; gap:0.75rem;">
+        <span class="indicator-dot"></span>
+        <span>Direct Local Catalog — To purchase any piece, tap a product and message us on WhatsApp or Email.</span>
+      </div>
+    </aside>
+
+    <!-- Featured Section -->
+    <section class="section">
+      <div class="container">
+        <div class="section-header">
+          <div>
+            <span class="mono-tag">Curated Pieces</span>
+            <h2 class="section-title">Featured Drops</h2>
+          </div>
+          <a href="shop.html" class="view-all-link">Browse All →</a>
+        </div>
+        <div id="featured-grid" class="product-grid"></div>
+      </div>
+    </section>
+
+    <!-- Catalog Section with Category Filter -->
+    <section id="catalog" class="section" style="background-color: var(--bg-surface); border-top: 1px solid var(--border-subtle); border-bottom: 1px solid var(--border-subtle);">
+      <div class="container">
+        <div class="section-header">
+          <div>
+            <span class="mono-tag">Catalog</span>
+            <h2 class="section-title">The Entire Roster</h2>
+          </div>
+        </div>
+
+        <div class="filter-tabs">
+          <button class="filter-btn active" data-category="all" type="button">All (8)</button>
+          <button class="filter-btn" data-category="t-shirts" type="button">T-Shirts</button>
+          <button class="filter-btn" data-category="hoodies" type="button">Hoodies</button>
+        </div>
+
+        <div id="shop-grid" class="product-grid"></div>
+      </div>
+    </section>
+
+    <!-- T-Shirts Specific Showcase -->
+    <section class="section">
+      <div class="container">
+        <div class="section-header">
+          <div>
+            <span class="mono-tag">240 GSM Combed Cotton</span>
+            <h2 class="section-title">Oversized T-Shirts</h2>
+          </div>
+          <a href="shop.html" class="view-all-link">All Tees →</a>
+        </div>
+        <div id="tshirts-grid" class="product-grid"></div>
+      </div>
+    </section>
+
+    <!-- Hoodies Specific Showcase -->
+    <section class="section" style="padding-top: 0;">
+      <div class="container">
+        <div class="section-header">
+          <div>
+            <span class="mono-tag">450 GSM Double-Fleece</span>
+            <h2 class="section-title">Heavyweight Hoodies</h2>
+          </div>
+          <a href="shop.html" class="view-all-link">All Hoodies →</a>
+        </div>
+        <div id="hoodies-grid" class="product-grid"></div>
+      </div>
+    </section>
+
+    <!-- Brand Statement / Manifesto -->
+    <section class="manifesto-section">
+      <div class="container">
+        <div class="manifesto-grid">
+          <div class="manifesto-quote">
+            "We reject disposable graphic prints in favor of embroidery that outlasts the cotton it is sewn into."
+          </div>
+          <div class="manifesto-body">
+            <p>
+              VOID is built on patient craftsmanship. Every single piece is developed in small batches with meticulous digitizing, stitch-density calibration, and premium raw yardage.
+            </p>
+            <p>
+              We run as an independent, local project. Browse our catalog, choose your size, and message us directly to order.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <span class="brand-logo">VOID</span>
+          <p>Independent embroidered streetwear for daily wear. Available through direct inquiry.</p>
+        </div>
+        <div>
+          <h3 class="footer-col-title">Navigation</h3>
+          <ul class="footer-nav">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="shop.html">Shop Catalog</a></li>
+            <li><a href="about.html">About Brand</a></li>
+            <li><a href="contact.html">Contact & Ordering</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="footer-col-title">Direct Inquiries</h3>
+          <ul class="footer-nav">
+            <li><a href="https://wa.me/919876543210" target="_blank" rel="noopener">WhatsApp Chat</a></li>
+            <li><a href="mailto:orders@voidclothing.local">orders@voidclothing.local</a></li>
+            <li><span style="color:var(--text-muted);">Mon–Sat: 10:00 – 20:00</span></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div>© <span id="current-year"></span> VOID Clothing. All rights reserved.</div>
+        <div>Local Independent Brand / No Middlemen</div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/products.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

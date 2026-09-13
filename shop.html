@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shop Catalog — VOID</title>
+  <meta name="description" content="Browse the full collection of embroidered oversized tees and heavyweight hoodies from VOID.">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Navigation -->
+  <header class="site-header">
+    <div class="container nav-wrapper">
+      <a href="index.html" class="brand-logo" aria-label="VOID Home">VOID</a>
+      <button class="nav-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+        <span></span>
+        <span></span>
+      </button>
+      <nav>
+        <ul class="nav-links">
+          <li><a href="index.html" class="nav-link">Home</a></li>
+          <li><a href="shop.html" class="nav-link active">Shop</a></li>
+          <li><a href="about.html" class="nav-link">About</a></li>
+          <li><a href="contact.html" class="nav-link">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="section" style="padding-top: 3.5rem;">
+      <div class="container">
+        <div style="margin-bottom: 2rem;">
+          <span class="mono-tag">Catalog</span>
+          <h1 class="hero-headline" style="font-size: 2.8rem; margin: 0.5rem 0 0.8rem;">All Garments</h1>
+          <p style="color: var(--text-secondary); max-width: 600px;">
+            Select any item to view embroidery specifications, available sizes, and order directly via WhatsApp or email.
+          </p>
+        </div>
+
+        <!-- Filter Controls -->
+        <div class="filter-tabs">
+          <button class="filter-btn active" data-category="all" type="button">All (8)</button>
+          <button class="filter-btn" data-category="t-shirts" type="button">T-Shirts</button>
+          <button class="filter-btn" data-category="hoodies" type="button">Hoodies</button>
+        </div>
+
+        <!-- Grid Container -->
+        <div id="shop-grid" class="product-grid"></div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container footer-bottom">
+      <div>© <span id="current-year"></span> VOID Clothing.</div>
+      <div>Local Direct Sales</div>
+    </div>
+  </footer>
+
+  <script src="js/products.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
