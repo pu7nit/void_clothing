@@ -31,7 +31,7 @@ const PRODUCTS = [
     featured: true,
     images: [
       "assets/p1/front.png",
-      "assets/p1close_up.png",
+      "assets/p1/close_up.png",
       "assets/p1/tshirt.png"
     ],
     // High-quality placeholders for immediate preview
@@ -96,12 +96,12 @@ const PRODUCTS = [
     name: "Sakura Branch Tee",
     category: "t-shirts",
     price: 699,
-    tagline: "Clean retro-techno embroidery",
+    tagline: "Clean embroidery",
     description: "Oversized black T-shirt featuring a hand-inspired cherry blossom embroidery, with a larger statement branch across the back and a smaller matching bloom on the front.",
     embroidery: "Direct flat-needle embroidery with approximately 70,000 stiches.",
     sizes: {
-    "S": 1,
-    "M": 1,
+    "S": 2,
+    "M": 2,
     "L": 0,
     "XL": 0
     },
@@ -113,10 +113,7 @@ const PRODUCTS = [
       "assets/p4/tshirt_back.png",
       "assets/p4/tshirt_front.png"
     ],
-    fallbackImages: [
-      "https://images.unsplash.com/photo-1576566588028-4147f3842f27?auto=format&fit=crop&w=1000&q=80",
-      "https://images.unsplash.com/photo-1503342394128-c104d54dba01?auto=format&fit=crop&w=1000&q=80"
-    ]
+    
   },
   {
     id: "product-05",
@@ -145,28 +142,26 @@ const PRODUCTS = [
   },
   {
     id: "product-06",
-    name: "After Dark Tee",
+    name: "Sakura Branch Tee (white)",
     category: "t-shirts",
-    price: 749,
-    tagline: "Midnight botanical needlework",
-    description: "Oversized silhouette cut from 220 GSM combed cotton. Intricate dark flora motif rendered in high-density matte black thread for a covert, light-reactive look.",
-    embroidery: "Complex 14,000 stitch matte tonal needlework across the upper back.",
+    price: 699,
+    tagline: "Clean embroidery",
+    description: "Oversized black T-shirt featuring a hand-inspired cherry blossom embroidery, with a larger statement branch across the back and a smaller matching bloom on the front.",
+    embroidery: "Complex 70,000 stitch needlework across the back.",
     sizes: {
     "S": 2,
     "M": 2,
     "L": 0,
     "XL": 0
     },
-    colors: ["Faded Black"],
+    colors: ["White"],
     featured: false,
     images: [
-      "assets/products/product-06/front.jpg",
-      "assets/products/product-06/back.jpg"
+      "assets/p5/back.png",
+      "assets/p5/front.png",
+      "assets/p5/tback.png",
+      "assets/p5/tfront.png"
     ],
-    fallbackImages: [
-      "https://images.unsplash.com/photo-1583743814966-8936f5b7be1a?auto=format&fit=crop&w=1000&q=80",
-      "https://images.unsplash.com/photo-1521572267360-ee0c2909d518?auto=format&fit=crop&w=1000&q=80"
-    ]
   },
   {
     id: "product-07",
