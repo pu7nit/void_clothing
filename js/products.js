@@ -190,27 +190,25 @@ const PRODUCTS = [
   },
   {
     id: "product-08",
-    name: "Eclipse Embroidery Tee",
+    name: "Flight of Freedom Tee",
     category: "t-shirts",
-    price: 799,
-    tagline: "Solar disc continuous needlework",
-    description: "Heavyweight streetwear cut with dropped shoulders. Front features a circular lunar eclipse rendered in graduated density black-on-charcoal thread.",
-    embroidery: "Continuous gradient-density circular embroidery on center torso.",
+    price: 649,
+    tagline: "Soar. Move. Be Free.",
+    description: "A clean black tee with a vibrant hummingbird embroidery and Japanese-inspired detailing.",
+    embroidery: "Detailed green, gold, and orange hummingbird embroidery paired with 翔る in gold thread.",
     sizes: {
     "S": 2,
     "M": 2,
     "L": 0,
     "XL": 0
     },
-    colors: ["Vintage Charcoal"],
+    colors: ["Black"],
     featured: false,
     images: [
-      "assets/products/product-08/front.jpg",
-      "assets/products/product-08/back.jpg"
+      "assets/p6/front.png",
+      "assets/p6/close.png",
+      "assets/p6/tshirt.png"
     ],
-    fallbackImages: [
-      "https://images.unsplash.com/photo-1529374255404-311a2a4f1fd9?auto=format&fit=crop&w=1000&q=80",
-      "https://images.unsplash.com/photo-1581655353564-df123a1eb820?auto=format&fit=crop&w=1000&q=80"
-    ]
+    
   }
 ];
