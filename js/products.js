@@ -132,13 +132,9 @@ const PRODUCTS = [
     colors: ["Stone Gray"],
     featured: true,
     images: [
-      "assets/products/product-05/front.jpg",
-      "assets/products/product-05/back.jpg"
+      "assets/c.jpg"
     ],
-    fallbackImages: [
-      "https://images.unsplash.com/photo-1509967419530-da38b4704bc6?auto=format&fit=crop&w=1000&q=80",
-      "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?auto=format&fit=crop&w=1000&q=80"
-    ]
+    
   },
   {
     id: "product-06",
@@ -180,13 +176,9 @@ const PRODUCTS = [
     colors: ["Washed Olive"],
     featured: false,
     images: [
-      "assets/products/product-07/front.jpg",
-      "assets/products/product-07/back.jpg"
+      "assets/c.jpg"
     ],
-    fallbackImages: [
-      "https://images.unsplash.com/photo-1509967419530-da38b4704bc6?auto=format&fit=crop&w=1000&q=80",
-      "https://images.unsplash.com/photo-1556905055-8f358a7a47b2?auto=format&fit=crop&w=1000&q=80"
-    ]
+    
   },
   {
     id: "product-08",
@@ -208,6 +200,29 @@ const PRODUCTS = [
       "assets/p6/front.png",
       "assets/p6/close.png",
       "assets/p6/tshirt.png"
+    ],
+    
+  },
+  {
+    id: "product-09",
+    name: "Flight of Freedom Tee (white)",
+    category: "t-shirts",
+    price: 649,
+    tagline: "Soar. Move. Be Free.",
+    description: "A clean white tee with a vibrant hummingbird embroidery and Japanese-inspired detailing.",
+    embroidery: "Detailed green, gold, and orange hummingbird embroidery paired with 翔る in gold thread.",
+    sizes: {
+    "S": 2,
+    "M": 2,
+    "L": 0,
+    "XL": 0
+    },
+    colors: ["Black"],
+    featured: true,
+    images: [
+      "assets/p7/front.png",
+      "assets/p7/close.png",
+      "assets/p7/tshirt.png"
     ],
     
   }
