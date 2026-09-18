@@ -225,5 +225,28 @@ const PRODUCTS = [
       "assets/p7/tshirt.png"
     ],
     
+  },
+  {
+    id: "product-09",
+    name: "Dragonball Tee",
+    category: "t-shirts",
+    price: 649,
+    tagline: "Soar. Move. Be Free.",
+    description: "A clean white tee with a vibrant hummingbird embroidery and Japanese-inspired detailing.",
+    embroidery: "Detailed green, gold, and orange hummingbird embroidery paired with 翔る in gold thread.",
+    sizes: {
+    "S": 2,
+    "M": 2,
+    "L": 0,
+    "XL": 0
+    },
+    colors: ["Beige"],
+    featured: true,
+    images: [
+      "assets/p8/front.png",
+      "assets/p8/close.png",
+      "assets/p8/tshirt.png"
+    ],
+    
   }
 ];
