@@ -230,10 +230,10 @@ const PRODUCTS = [
     id: "product-10",
     name: "Dragonball Tee",
     category: "t-shirts",
-    price: 699,
-    tagline: "Soar. Move. Be Free.",
-    description: "A clean beige tee with a stunning dragonball embroiderydetailing.",
-    embroidery: "Made with more than .",
+    price: 899,
+    tagline: "Awaken the Dragon.",
+    description: "A clean beige tee with a stunning dragonball embroidery and detailing.",
+    embroidery: "Made with more than 1.1 lakh stitches taking over 3 hours for each piece.",
     sizes: {
     "S": 1,
     "M": 1,
@@ -246,6 +246,28 @@ const PRODUCTS = [
       "assets/p8/front.png",
       "assets/p8/close.png",
       "assets/p8/tshirt.png"
+    ],
+    
+  },
+  {
+    id: "product-11",
+    name: "Void Tee",
+    category: "t-shirts",
+    price: 649,
+    tagline: "VOID Within.",
+    description: "A clean cyan streetwear tee featuring bold maroon and cyan embroidery, blending minimalism with cyber sigilism.",
+    embroidery: "A sharp cyber-sigil surrounding the VOID logo on the front, paired with 空所 (“void”) on the back for a subtle Japanese-inspired aesthetic.",
+    sizes: {
+    "S": 1,
+    "M": 1,
+    "L": 0,
+    "XL": 0
+    },
+    colors: ["Cyan"],
+    featured: true,
+    images: [
+      "assets/p9/front.png",
+      "assets/p9/back.png"
     ],
     
   }
