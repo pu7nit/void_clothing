@@ -1,173 +1,293 @@
-/**
- * VOID — Single Product Detail Page Handler
- */
 
+/** VOID — Product detail page with garment/color/size selection */
 document.addEventListener("DOMContentLoaded", () => {
-  const urlParams = new URLSearchParams(window.location.search);
-  const productId = urlParams.get("id");
-
-  // Fallback to first product if query parameter is missing or invalid
-  const product = PRODUCTS.find(p => p.id === productId) || PRODUCTS[0];
+  const params = new URLSearchParams(window.location.search);
+  const product = PRODUCTS.find(p => p.id === params.get("id")) || PRODUCTS[0];
   renderProductPage(product);
 });
 
 function renderProductPage(product) {
   if (!product) return;
 
-  // Title and Meta
   document.title = `${product.name} — ${STORE_CONFIG.brandName}`;
+  const $ = id => document.getElementById(id);
 
-  // DOM Elements
-  const titleEl = document.getElementById("product-title");
-  const priceEl = document.getElementById("product-price");
-  const categoryEl = document.getElementById("product-category");
-  const descEl = document.getElementById("product-desc");
-  const embroideryEl = document.getElementById("product-embroidery");
-  const colorEl = document.getElementById("product-color");
-  const sizeSelectorEl = document.getElementById("size-selector");
-  const mainImageEl = document.getElementById("main-product-image");
-  const thumbnailRowEl = document.getElementById("thumbnail-row");
-  const whatsappBtn = document.getElementById("whatsapp-order-btn");
-  const emailBtn = document.getElementById("email-order-btn");
+  const titleEl = $("product-title");
+  const priceEl = $("product-price");
+  const categoryEl = $("product-category");
+  const descEl = $("product-desc");
+  const embroideryEl = $("product-embroidery");
+  const colorSelect = $("product-color-select");
+  const sizeSelector = $("size-selector");
+  const mainImage = $("main-product-image");
+  const thumbs = $("thumbnail-row");
+  const whatsapp = $("whatsapp-order-btn");
+  const email = $("email-order-btn");
+  const stockMsg = $("stock-message");
+  const garmentButtons = $("garment-selector");
 
   if (titleEl) titleEl.textContent = product.name;
-  if (priceEl) priceEl.textContent = `${STORE_CONFIG.currency}${product.price}`;
-  if (categoryEl) categoryEl.textContent = product.category === "hoodies" ? "Heavyweight Hoodie" : "Embroidered T-Shirt";
   if (descEl) descEl.textContent = product.description;
-  if (embroideryEl) embroideryEl.textContent = product.embroidery || "Precision direct-to-garment embroidery.";
-  if (colorEl) colorEl.textContent = product.colors.join(", ");
-
-  // Setup Image Sources
-  const images = (product.images && product.images.length > 0)
-    ? product.images
-    : product.fallbackImages;
-
-  const fallbackImages = product.fallbackImages || [];
-
-  if (mainImageEl && images.length > 0) {
-    mainImageEl.src = images[0];
-    mainImageEl.alt = `${product.name} detail view`;
-    mainImageEl.onerror = () => {
-      if (fallbackImages[0]) mainImageEl.src = fallbackImages[0];
-    };
+  if (embroideryEl) {
+    embroideryEl.textContent =
+      product.embroidery || "Precision embroidery.";
   }
 
-  // Thumbnails Switching
-  if (thumbnailRowEl) {
-    thumbnailRowEl.innerHTML = images.map((imgSrc, index) => {
-      const fallback = fallbackImages[index] || fallbackImages[0] || "";
-      return `
-        <button class="thumbnail-item ${index === 0 ? 'active' : ''}" data-index="${index}" aria-label="View photo ${index + 1}">
-          <img src="${imgSrc}" alt="Thumbnail ${index + 1}" onerror="if(this.src !== '${fallback}') this.src='${fallback}';" />
-        </button>
-      `;
-    }).join("");
+  const garmentKeys = ["t-shirts", "hoodies"];
+  let selectedGarment =
+    garmentKeys.find(key => product.garments[key]?.colors?.length) ||
+    "t-shirts";
+  let selectedColor = null;
+  let selectedSize = null;
 
-    const thumbs = thumbnailRowEl.querySelectorAll(".thumbnail-item");
-    thumbs.forEach(thumb => {
-      thumb.addEventListener("click", () => {
-        const idx = parseInt(thumb.getAttribute("data-index"), 10);
-        thumbs.forEach(t => t.classList.remove("active"));
-        thumb.classList.add("active");
-        mainImageEl.src = images[idx];
-        mainImageEl.onerror = () => {
-          if (fallbackImages[idx]) mainImageEl.src = fallbackImages[idx];
-        };
+  function renderGallery(color) {
+    const images =
+      (color?.images?.length ? color.images : color?.fallbackImages) || [];
+    const fallback = color?.fallbackImages || images;
+
+    if (mainImage) {
+      mainImage.src = images[0] || "";
+      mainImage.alt =
+        `${product.name} ${selectedGarment} ${color?.name || ""}`;
+
+      mainImage.onerror = () => {
+        if (fallback[0]) mainImage.src = fallback[0];
+      };
+    }
+
+    if (!thumbs) return;
+
+    thumbs.innerHTML = images.map((src, index) => `
+      <button
+        class="thumbnail-item ${index === 0 ? "active" : ""}"
+        data-index="${index}"
+        type="button"
+        aria-label="View photo ${index + 1}"
+      >
+        <img src="${src}" alt="Photo ${index + 1}">
+      </button>
+    `).join("");
+
+    thumbs.querySelectorAll(".thumbnail-item").forEach(button => {
+      button.addEventListener("click", () => {
+        const index = Number(button.dataset.index);
+
+        thumbs.querySelectorAll(".thumbnail-item")
+          .forEach(item => item.classList.remove("active"));
+
+        button.classList.add("active");
+
+        if (mainImage) {
+          mainImage.src = images[index];
+          mainImage.onerror = () => {
+            if (fallback[index]) mainImage.src = fallback[index];
+          };
+        }
       });
     });
   }
 
-  // State: selected size
-const sizeEntries = product.sizes
-  ? Object.entries(product.sizes)
-  : [];
+  function updateStockMessage() {
+    if (!stockMsg) return;
 
-let selectedSize = null;
+    const stock = Number(selectedColor?.sizes?.[selectedSize] || 0);
+    stockMsg.classList.remove("low-stock");
 
-const stockMessageEl = document.getElementById("stock-message");
+    stockMsg.textContent =
+      stock > 0 && stock <= 3
+        ? `Only ${stock} ${stock === 1 ? "item" : "items"} left in stock`
+        : "";
 
-function updateStockMessage() {
-  if (!stockMessageEl || !selectedSize || !product.sizes) return;
-
-  const stock = product.sizes[selectedSize] || 0;
-
-  if (stock === 0) {
-    stockMessageEl.textContent = "";
-    stockMessageEl.classList.remove("low-stock");
-  } 
-  else if (stock <= 3) {
-    stockMessageEl.textContent =
-      `Only ${stock} ${stock === 1 ? "item" : "items"} left in stock`;
-    stockMessageEl.classList.add("low-stock");
-  } 
-  else {
-    stockMessageEl.textContent = "";
-    stockMessageEl.classList.remove("low-stock");
-  }
-}
-
-// Size buttons setup
-if (sizeSelectorEl && sizeEntries.length > 0) {
-
-  sizeSelectorEl.innerHTML = sizeEntries.map(([size, stock], idx) => {
-    const isAvailable = stock > 0;
-
-    return `
-      <button
-        class="size-btn ${isAvailable && idx === sizeEntries.findIndex(([_, qty]) => qty > 0) ? 'active' : ''} ${!isAvailable ? 'out-of-stock' : ''}"
-        data-size="${size}"
-        type="button"
-        ${!isAvailable ? 'disabled' : ''}
-      >
-        ${size}
-      </button>
-    `;
-  }).join("");
-
-  // Select the first available size automatically
-  const firstAvailable = sizeEntries.find(([_, stock]) => stock > 0);
-
-  if (firstAvailable) {
-    selectedSize = firstAvailable[0];
+    if (stock > 0 && stock <= 3) {
+      stockMsg.classList.add("low-stock");
+    }
   }
 
-  const sizeBtns = sizeSelectorEl.querySelectorAll(".size-btn");
+  function updateLinks() {
+    const garmentLabel =
+      selectedGarment === "hoodies" ? "Hoodie" : "T-Shirt";
 
-  sizeBtns.forEach(btn => {
+    const garment = product.garments[selectedGarment] || {};
+    const price = selectedColor?.price ?? garment.price;
 
-    btn.addEventListener("click", () => {
+    const priceLabel =
+      price != null && Number.isFinite(Number(price))
+        ? `${STORE_CONFIG.currency}${price}`
+        : "Price to be confirmed";
 
-      if (btn.disabled) return;
+    const message =
+      `Hi, I'm interested in ordering ${product.name}. ` +
+      `Garment: ${garmentLabel}. ` +
+      `Color: ${selectedColor?.name || "Not selected"}. ` +
+      `Size: ${selectedSize || "Not selected"}. ` +
+      `Price: ${priceLabel}.`;
 
-      sizeBtns.forEach(b => b.classList.remove("active"));
+    const encoded = encodeURIComponent(message);
 
-      btn.classList.add("active");
+    if (whatsapp) {
+      whatsapp.href =
+        `https://wa.me/${STORE_CONFIG.whatsappNumber.replace(/\D/g, "")}` +
+        `?text=${encoded}`;
+      whatsapp.target = "_blank";
+      whatsapp.rel = "noopener noreferrer";
+    }
 
-      selectedSize = btn.getAttribute("data-size");
+    if (email) {
+      email.href =
+        `mailto:${STORE_CONFIG.email}` +
+        `?subject=${encodeURIComponent(
+          `Order Inquiry: ${product.name} - ${garmentLabel}`
+        )}` +
+        `&body=${encoded}`;
+    }
+  }
+
+  function renderSizes() {
+    if (!sizeSelector) return;
+
+    const sizes = selectedColor?.sizes || {};
+    const entries = Object.entries(sizes);
+    selectedSize = null;
+
+    if (!entries.length) {
+      sizeSelector.innerHTML =
+        '<p class="variant-note">Add size stock in js/products.js.</p>';
       updateStockMessage();
-
-      updateActionLinks();
-    });
-
-  });
-}
-
-  // Dynamic prefilled WhatsApp & Email generator
-  function updateActionLinks() {
-    const rawMessage = `Hi, I'm interested in ordering the ${product.name}. Size: ${selectedSize}. Price: ${STORE_CONFIG.currency}${product.price}.`;
-    const encodedMessage = encodeURIComponent(rawMessage);
-
-    if (whatsappBtn) {
-      whatsappBtn.href = `https://wa.me/${STORE_CONFIG.whatsappNumber}?text=${encodedMessage}`;
-      whatsappBtn.target = "_blank";
-      whatsappBtn.rel = "noopener noreferrer";
+      updateLinks();
+      return;
     }
 
-    if (emailBtn) {
-      const subject = encodeURIComponent(`Order Inquiry: ${product.name} (${selectedSize})`);
-      emailBtn.href = `mailto:${STORE_CONFIG.email}?subject=${subject}&body=${encodedMessage}`;
-    }
+    const firstAvailable = entries.find(([, quantity]) =>
+      Number(quantity) > 0
+    );
+
+    selectedSize = firstAvailable?.[0] || null;
+
+    sizeSelector.innerHTML = entries.map(([size, quantity]) => {
+      const available = Number(quantity) > 0;
+      const active = firstAvailable?.[0] === size;
+
+      return `
+        <button
+          class="size-btn ${available ? "" : "out-of-stock"} ${active ? "active" : ""}"
+          data-size="${size}"
+          type="button"
+          ${available ? "" : "disabled"}
+        >${size}</button>
+      `;
+    }).join("");
+
+    sizeSelector.querySelectorAll(".size-btn:not(:disabled)")
+      .forEach(button => {
+        button.addEventListener("click", () => {
+          sizeSelector.querySelectorAll(".size-btn")
+            .forEach(item => item.classList.remove("active"));
+
+          button.classList.add("active");
+          selectedSize = button.dataset.size;
+
+          updateStockMessage();
+          updateLinks();
+        });
+      });
+
+    updateStockMessage();
+    updateLinks();
   }
 
-  updateActionLinks();
+  function renderColors() {
+    const garment = product.garments[selectedGarment] || {
+      price: null,
+      colors: []
+    };
+
+    const colors = garment.colors || [];
+
+    if (categoryEl) {
+      categoryEl.textContent =
+        selectedGarment === "hoodies"
+          ? "Heavyweight Hoodie"
+          : "Embroidered T-Shirt";
+    }
+
+    if (!colorSelect) return;
+
+    colorSelect.innerHTML = colors.length
+      ? colors.map((color, index) =>
+          `<option value="${index}">${color.name}</option>`
+        ).join("")
+      : '<option value="">No colors added yet</option>';
+
+    selectedColor = colors[0] || null;
+
+    if (!selectedColor) {
+      if (priceEl) {
+        priceEl.textContent =
+          garment.price != null
+            ? `${STORE_CONFIG.currency}${garment.price}`
+            : "Price not configured";
+      }
+
+      const colorLabel = $("product-color");
+      if (colorLabel) colorLabel.textContent = "Add colors in js/products.js";
+
+      if (sizeSelector) {
+        sizeSelector.innerHTML =
+          '<p class="variant-note">This garment is not configured yet. Add available colors, prices, images, and size stock in js/products.js.</p>';
+      }
+
+      if (stockMsg) stockMsg.textContent = "";
+
+      renderGallery(null);
+      updateLinks();
+      return;
+    }
+
+    function selectColor(index) {
+      selectedColor = colors[index] || null;
+      if (!selectedColor) return;
+
+      const colorLabel = $("product-color");
+      if (colorLabel) colorLabel.textContent = selectedColor.name;
+
+      const price = selectedColor.price ?? garment.price;
+      if (priceEl) {
+        priceEl.textContent =
+          price != null
+            ? `${STORE_CONFIG.currency}${price}`
+            : "Price not configured";
+      }
+
+      renderGallery(selectedColor);
+      renderSizes();
+    }
+
+    colorSelect.onchange = () => {
+      selectColor(Number(colorSelect.value));
+    };
+
+    selectColor(0);
+  }
+
+  if (garmentButtons) {
+    garmentButtons.querySelectorAll("[data-garment]").forEach(button => {
+      button.classList.toggle(
+        "active",
+        button.dataset.garment === selectedGarment
+      );
+
+      button.addEventListener("click", () => {
+        selectedGarment = button.dataset.garment;
+
+        garmentButtons.querySelectorAll("[data-garment]")
+          .forEach(item => {
+            item.classList.toggle("active", item === button);
+          });
+
+        renderColors();
+      });
+    });
+  }
+
+  renderColors();
 }

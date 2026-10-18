@@ -1,12 +1,12 @@
-/**
- * VOID — Product Catalog Data & Configuration
- * Edit this file to update contacts or add/remove products.
- */
 
+/**
+ * VOID — Product Catalog
+ * Each design is listed once. Add/edit colors inside the garment you want to offer.
+ * Each color has its own price, size-level stock, and image gallery.
+ */
 const STORE_CONFIG = {
   brandName: "VOID",
   tagline: "Heavyweight silhouettes. Precision embroidery.",
-  // Replace with your actual WhatsApp phone number with country code (no + or spaces)
   whatsappNumber: "+91 8885360071",
   email: "ritvikjagana539@gmail.com",
   currency: "₹"
@@ -16,259 +16,210 @@ const PRODUCTS = [
   {
     id: "product-01",
     name: "Charizard Oversized Black Tee",
-    category: "t-shirts",
-    price: 649,
     tagline: "Signature drop-shoulder silhouette",
     description: "A striking embroidered charizard breathing fire across the chest, blending bold orange, red, and green threadwork for a fierce statement on classic black.",
     embroidery: "High-density micro-thread embroidery (aprrox 10,000 stitches) across center chest.",
-    sizes: {
-    "S": 2,
-    "M": 2,
-    "L": 0,
-    "XL": 0
-    },
-    colors: ["BLACK"],
     featured: true,
-    images: [
-      "assets/p1/front.png",
-      "assets/p1/close_up.png",
-      "assets/p1/tshirt.png"
-    ],
-    // High-quality placeholders for immediate preview
-    fallbackImages: [
-      "assets/p1/front.png",
-      "assets/p1/close_up.png",
-      "assets/p1/tshirt.png"
-    ]
+    garments: {
+      "t-shirts": {
+        price: 649,
+        colors: [
+          {
+            name: "BLACK",
+            price: 649,
+            sizes: { S: 2, M: 2, L: 0, XL: 0 },
+            images: ["assets/p1/front.png", "assets/p1/close_up.png", "assets/p1/tshirt.png"],
+            fallbackImages: ["assets/p1/front.png", "assets/p1/close_up.png", "assets/p1/tshirt.png"]
+          }
+        ]
+      },
+      hoodies: { price: null, colors: [] }
+    }
   },
   {
     id: "product-02",
-    name: "phoenix Embroidery Tee",
-    category: "t-shirts",
-    price: 899,
+    name: "Phoenix Embroidery",
     tagline: "Phoenix back artwork",
     description: "240 Heavyweight oversized tee featuring an abstract phoenix motif embroidered with metallic red thread. Built for daily wear.",
     embroidery: "Made with more than 50,000 individual stiches, taking more than 3 hours per piece.",
-    sizes: {
-    "S": 1,
-    "M": 2,
-    "L": 0,
-    "XL": 1
-    },
-    colors: ["BLACK"],
     featured: true,
-    images: [
-      "assets/p2/back.png",
-      "assets/p2/tshirt.png"
-    ],
-    fallbackImages: [
-      "assets/p2/back.png",
-      "assets/p2/tshirt.png"
-    ]
-  },
-  {
-    id: "product-03",
-    name: "Phoenix Heavyweight Hoodie",
-    category: "hoodies",
-    price: 1299,
-    tagline: "430 GSM Cotton brushed",
-    description: "A premium black hoodie featuring a bold, fiery phoenix embroidery across the back. Rich red, orange, and gold tones create a striking rebirth-inspired design with a powerful streetwear aesthetic.",
-    embroidery: "Made with more than 50,000 individual stiches, taking more than 3 hours per piece.",
-    sizes: {
-    "S": 2,
-    "M": 2,
-    "L": 0,
-    "XL": 0
-    },
-    colors: ["Pitch Black"],
-    featured: true,
-    images: [
-      "assets/p3/back.png",
-      "assets/p3/hoodie.png"
-    ],
-    fallbackImages: [
-      "assets/p3/back.png",
-      "assets/p3/hoodie.png"
-    ]
+    garments: {
+      "t-shirts": {
+        price: 899,
+        colors: [
+          {
+            name: "BLACK",
+            price: 899,
+            sizes: { S: 1, M: 2, L: 0, XL: 1 },
+            images: ["assets/p2/back.png", "assets/p2/tshirt.png"],
+            fallbackImages: ["assets/p2/back.png", "assets/p2/tshirt.png"]
+          }
+        ]
+      },
+      hoodies: {
+        price: 1299,
+        colors: [
+          {
+            name: "Pitch Black",
+            price: 1299,
+            sizes: { S: 2, M: 2, L: 0, XL: 0 },
+            images: ["assets/p3/back.png", "assets/p3/hoodie.png"],
+            fallbackImages: ["assets/p3/back.png", "assets/p3/hoodie.png"]
+          }
+        ]
+      }
+    }
   },
   {
     id: "product-04",
-    name: "Sakura Branch Tee",
-    category: "t-shirts",
-    price: 699,
+    name: "Sakura Branch",
     tagline: "Clean embroidery",
     description: "Oversized black T-shirt featuring a hand-inspired cherry blossom embroidery, with a larger statement branch across the back and a smaller matching bloom on the front.",
     embroidery: "Direct flat-needle embroidery with approximately 70,000 stiches.",
-    sizes: {
-    "S": 2,
-    "M": 2,
-    "L": 0,
-    "XL": 0
-    },
-    colors: ["Black"],
     featured: false,
-    images: [
-      "assets/p4/back.png",
-      "assets/p4/front.png",
-      "assets/p4/tshirt_back.png",
-      "assets/p4/tshirt_front.png"
-    ],
-    
+    garments: {
+      "t-shirts": {
+        price: 699,
+        colors: [
+          {
+            name: "Black",
+            price: 699,
+            sizes: { S: 2, M: 2, L: 0, XL: 0 },
+            images: ["assets/p4/back.png", "assets/p4/front.png", "assets/p4/tshirt_back.png", "assets/p4/tshirt_front.png"],
+            fallbackImages: ["assets/p4/back.png", "assets/p4/front.png", "assets/p4/tshirt_back.png", "assets/p4/tshirt_front.png"]
+          },
+          {
+            name: "White",
+            price: 699,
+            sizes: { S: 2, M: 2, L: 0, XL: 0 },
+            images: ["assets/p5/back.png", "assets/p5/front.png", "assets/p5/tback.png", "assets/p5/tfront.png"],
+            fallbackImages: ["assets/p5/back.png", "assets/p5/front.png", "assets/p5/tback.png", "assets/p5/tfront.png"]
+          }
+        ]
+      },
+      hoodies: { price: null, colors: [] }
+    }
   },
   {
     id: "product-05",
     name: "Ghost Stitch Hoodie",
-    category: "hoodies",
-    price: 1249,
     tagline: "Raw-edge contrast stitch design",
     description: "Brushed fleece pullover hoodie in deep stone gray. Embellished with heavy contrast chain-stitch detailing running down the sleeves and back yoke.",
     embroidery: "Chain-stitch structural embroidery and left breast minimalist emblem.",
-    sizes: {
-    "S": 2,
-    "M": 2,
-    "L": 0,
-    "XL": 0
-    },
-    colors: ["Stone Gray"],
     featured: true,
-    images: [
-      "assets/c.jpg"
-    ],
-    
-  },
-  {
-    id: "product-06",
-    name: "Sakura Branch Tee (white)",
-    category: "t-shirts",
-    price: 699,
-    tagline: "Clean embroidery",
-    description: "Oversized black T-shirt featuring a hand-inspired cherry blossom embroidery, with a larger statement branch across the back and a smaller matching bloom on the front.",
-    embroidery: "Complex 70,000 stitch needlework across the back.",
-    sizes: {
-    "S": 2,
-    "M": 2,
-    "L": 0,
-    "XL": 0
-    },
-    colors: ["White"],
-    featured: false,
-    images: [
-      "assets/p5/back.png",
-      "assets/p5/front.png",
-      "assets/p5/tback.png",
-      "assets/p5/tfront.png"
-    ],
+    garments: {
+      "t-shirts": { price: null, colors: [] },
+      hoodies: {
+        price: 1249,
+        colors: [
+          {
+            name: "Stone Gray",
+            price: 1249,
+            sizes: { S: 2, M: 2, L: 0, XL: 0 },
+            images: ["assets/c.jpg"],
+            fallbackImages: ["assets/c.jpg"]
+          }
+        ]
+      }
+    }
   },
   {
     id: "product-07",
     name: "Lost Signal Hoodie",
-    category: "hoodies",
-    price: 1199,
     tagline: "Subtle sleeve typography",
     description: "Boxy fit, kangaroo pocket with reinforced bar-tacks. Fine-line Japanese tatami embroidery detailing along the right forearm and interior hood seam.",
     embroidery: "Tatami stitch geometric patterns and dense sleeve typography.",
-    sizes: {
-    "S": 2,
-    "M": 2,
-    "L": 0,
-    "XL": 0
-    },
-    colors: ["Washed Olive"],
     featured: false,
-    images: [
-      "assets/c.jpg"
-    ],
-    
+    garments: {
+      "t-shirts": { price: null, colors: [] },
+      hoodies: {
+        price: 1199,
+        colors: [
+          {
+            name: "Washed Olive",
+            price: 1199,
+            sizes: { S: 2, M: 2, L: 0, XL: 0 },
+            images: ["assets/c.jpg"],
+            fallbackImages: ["assets/c.jpg"]
+          }
+        ]
+      }
+    }
   },
   {
     id: "product-08",
-    name: "Flight of Freedom Tee",
-    category: "t-shirts",
-    price: 649,
+    name: "Flight of Freedom",
     tagline: "Soar. Move. Be Free.",
-    description: "A clean black tee with a vibrant hummingbird embroidery and Japanese-inspired detailing.",
+    description: "A clean tee with a vibrant hummingbird embroidery and Japanese-inspired detailing.",
     embroidery: "Detailed green, gold, and orange hummingbird embroidery paired with 翔る in gold thread.",
-    sizes: {
-    "S": 2,
-    "M": 2,
-    "L": 0,
-    "XL": 0
-    },
-    colors: ["Black"],
-    featured: false,
-    images: [
-      "assets/p6/front.png",
-      "assets/p6/close.png",
-      "assets/p6/tshirt.png"
-    ],
-    
-  },
-  {
-    id: "product-09",
-    name: "Flight of Freedom Tee (white)",
-    category: "t-shirts",
-    price: 649,
-    tagline: "Soar. Move. Be Free.",
-    description: "A clean white tee with a vibrant hummingbird embroidery and Japanese-inspired detailing.",
-    embroidery: "Detailed green, gold, and orange hummingbird embroidery paired with 翔る in gold thread.",
-    sizes: {
-    "S": 2,
-    "M": 2,
-    "L": 0,
-    "XL": 0
-    },
-    colors: ["Black"],
     featured: true,
-    images: [
-      "assets/p7/front.png",
-      "assets/p7/close.png",
-      "assets/p7/tshirt.png"
-    ],
-    
+    garments: {
+      "t-shirts": {
+        price: 649,
+        colors: [
+          {
+            name: "Black",
+            price: 649,
+            sizes: { S: 2, M: 2, L: 0, XL: 0 },
+            images: ["assets/p6/front.png", "assets/p6/close.png", "assets/p6/tshirt.png"],
+            fallbackImages: ["assets/p6/front.png", "assets/p6/close.png", "assets/p6/tshirt.png"]
+          },
+          {
+            name: "White",
+            price: 649,
+            sizes: { S: 2, M: 2, L: 0, XL: 0 },
+            images: ["assets/p7/front.png", "assets/p7/close.png", "assets/p7/tshirt.png"],
+            fallbackImages: ["assets/p7/front.png", "assets/p7/close.png", "assets/p7/tshirt.png"]
+          }
+        ]
+      },
+      hoodies: { price: null, colors: [] }
+    }
   },
   {
     id: "product-10",
     name: "Dragonball Tee",
-    category: "t-shirts",
-    price: 899,
     tagline: "Awaken the Dragon.",
     description: "A clean beige tee with a stunning dragonball embroidery and detailing.",
     embroidery: "Made with more than 1.1 lakh stitches taking over 3 hours for each piece.",
-    sizes: {
-    "S": 1,
-    "M": 1,
-    "L": 0,
-    "XL": 0
-    },
-    colors: ["Beige"],
     featured: true,
-    images: [
-      "assets/p8/front.png",
-      "assets/p8/close.png",
-      "assets/p8/tshirt.png"
-    ],
-    
+    garments: {
+      "t-shirts": {
+        price: 899,
+        colors: [
+          {
+            name: "Beige",
+            price: 899,
+            sizes: { S: 1, M: 1, L: 0, XL: 0 },
+            images: ["assets/p8/front.png", "assets/p8/close.png", "assets/p8/tshirt.png"],
+            fallbackImages: ["assets/p8/front.png", "assets/p8/close.png", "assets/p8/tshirt.png"]
+          }
+        ]
+      },
+      hoodies: { price: null, colors: [] }
+    }
   },
   {
     id: "product-11",
     name: "Void Tee",
-    category: "t-shirts",
-    price: 649,
     tagline: "VOID Within.",
     description: "A clean cyan streetwear tee featuring bold maroon and cyan embroidery, blending minimalism with cyber sigilism.",
     embroidery: "A sharp cyber-sigil surrounding the VOID logo on the front, paired with 空所 (“void”) on the back for a subtle Japanese-inspired aesthetic.",
-    sizes: {
-    "S": 1,
-    "M": 1,
-    "L": 0,
-    "XL": 0
-    },
-    colors: ["Cyan"],
     featured: true,
-    images: [
-      "assets/p9/front.png",
-      "assets/p9/back.png"
-    ],
-    
+    garments: {
+      "t-shirts": {
+        price: 649,
+        colors: [
+          {
+            name: "Cyan",
+            price: 649,
+            sizes: { S: 1, M: 1, L: 0, XL: 0 },
+            images: ["assets/p9/front.png", "assets/p9/back.png"],
+            fallbackImages: ["assets/p9/front.png", "assets/p9/back.png"]
+          }
+        ]
+      },
+      hoodies: { price: null, colors: [] }
+    }
   }
 ];

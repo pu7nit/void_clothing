@@ -1071,3 +1071,53 @@ button {
   color: var(--text-primary);
   font-weight: 600;
 }
+
+
+
+/* Garment and color selectors */
+.variant-selector {
+  display: flex;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+}
+
+.variant-btn {
+  min-height: 42px;
+  padding: 0.65rem 1.1rem;
+  border: 1px solid var(--border-subtle);
+  background: var(--bg-surface);
+  color: var(--text-primary);
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  border-radius: var(--radius-sm);
+  transition: var(--transition);
+}
+
+.variant-btn:hover {
+  border-color: var(--border-medium);
+}
+
+.variant-btn.active {
+  background: var(--text-primary);
+  color: var(--bg-primary);
+  border-color: var(--text-primary);
+  font-weight: 700;
+}
+
+.color-select {
+  width: 100%;
+  max-width: 360px;
+  min-height: 44px;
+  padding: 0.7rem 0.8rem;
+  border: 1px solid var(--border-medium);
+  border-radius: var(--radius-sm);
+  background: var(--bg-surface);
+  color: var(--text-primary);
+  font: inherit;
+}
+
+.variant-note {
+  color: var(--text-muted);
+  font-size: 0.85rem;
+  line-height: 1.6;
+}
