@@ -15,25 +15,37 @@ const STORE_CONFIG = {
 const PRODUCTS = [
   {
     id: "product-01",
-    name: "Charizard Oversized Black Tee",
+    name: "Charizard Oversized",
     tagline: "Signature drop-shoulder silhouette",
     description: "A striking embroidered charizard breathing fire across the chest, blending bold orange, red, and green threadwork for a fierce statement on classic black.",
     embroidery: "High-density micro-thread embroidery (aprrox 10,000 stitches) across center chest.",
     featured: true,
     garments: {
       "t-shirts": {
-        price: 649,
+        price: 749,
         colors: [
           {
             name: "BLACK",
-            price: 649,
-            sizes: { S: 2, M: 2, L: 0, XL: 0 },
-            images: ["assets/p1/front.png", "assets/p1/close_up.png", "assets/p1/tshirt.png"],
-            fallbackImages: ["assets/p1/front.png", "assets/p1/close_up.png", "assets/p1/tshirt.png"]
+            price: 749,
+            sizes: { S: 1, M: 0, L: 0, XL: 0 },
+            images: ["assets/p1/tee/front.png", "assets/p1/tee/close_up.png", "assets/p1/tee/tshirt.png", "assets/p1/tee/back2.png"],
           }
         ]
       },
-      hoodies: { price: null, colors: [] }
+      "hoodies": {
+        price: 1149,
+        colors: [
+          {
+            name: "BLACK",
+            price: 1149,
+            sizes: {S: 1, M: 1, L: 1, XL: 1},
+            images: [
+                "assets/p1/hoodie/front.png",
+                "assets/p1/hoodie/back.png"
+            ]
+          }
+        ]
+      }
     }
   },
   {
@@ -70,82 +82,7 @@ const PRODUCTS = [
       }
     }
   },
-  {
-    id: "product-04",
-    name: "Sakura Branch",
-    tagline: "Clean embroidery",
-    description: "Oversized black T-shirt featuring a hand-inspired cherry blossom embroidery, with a larger statement branch across the back and a smaller matching bloom on the front.",
-    embroidery: "Direct flat-needle embroidery with approximately 70,000 stiches.",
-    featured: false,
-    garments: {
-      "t-shirts": {
-        price: 699,
-        colors: [
-          {
-            name: "Black",
-            price: 699,
-            sizes: { S: 2, M: 2, L: 0, XL: 0 },
-            images: ["assets/p4/back.png", "assets/p4/front.png", "assets/p4/tshirt_back.png", "assets/p4/tshirt_front.png"],
-            fallbackImages: ["assets/p4/back.png", "assets/p4/front.png", "assets/p4/tshirt_back.png", "assets/p4/tshirt_front.png"]
-          },
-          {
-            name: "White",
-            price: 699,
-            sizes: { S: 2, M: 2, L: 0, XL: 0 },
-            images: ["assets/p5/back.png", "assets/p5/front.png", "assets/p5/tback.png", "assets/p5/tfront.png"],
-            fallbackImages: ["assets/p5/back.png", "assets/p5/front.png", "assets/p5/tback.png", "assets/p5/tfront.png"]
-          }
-        ]
-      },
-      hoodies: { price: null, colors: [] }
-    }
-  },
-  {
-    id: "product-05",
-    name: "Ghost Stitch Hoodie",
-    tagline: "Raw-edge contrast stitch design",
-    description: "Brushed fleece pullover hoodie in deep stone gray. Embellished with heavy contrast chain-stitch detailing running down the sleeves and back yoke.",
-    embroidery: "Chain-stitch structural embroidery and left breast minimalist emblem.",
-    featured: true,
-    garments: {
-      "t-shirts": { price: null, colors: [] },
-      hoodies: {
-        price: 1249,
-        colors: [
-          {
-            name: "Stone Gray",
-            price: 1249,
-            sizes: { S: 2, M: 2, L: 0, XL: 0 },
-            images: ["assets/c.jpg"],
-            fallbackImages: ["assets/c.jpg"]
-          }
-        ]
-      }
-    }
-  },
-  {
-    id: "product-07",
-    name: "Lost Signal Hoodie",
-    tagline: "Subtle sleeve typography",
-    description: "Boxy fit, kangaroo pocket with reinforced bar-tacks. Fine-line Japanese tatami embroidery detailing along the right forearm and interior hood seam.",
-    embroidery: "Tatami stitch geometric patterns and dense sleeve typography.",
-    featured: false,
-    garments: {
-      "t-shirts": { price: null, colors: [] },
-      hoodies: {
-        price: 1199,
-        colors: [
-          {
-            name: "Washed Olive",
-            price: 1199,
-            sizes: { S: 2, M: 2, L: 0, XL: 0 },
-            images: ["assets/c.jpg"],
-            fallbackImages: ["assets/c.jpg"]
-          }
-        ]
-      }
-    }
-  },
+
   {
     id: "product-08",
     name: "Flight of Freedom",
