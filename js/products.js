@@ -1,8 +1,9 @@
-
 /**
  * VOID — Product Catalog
  * Each design is listed once. Add/edit colors inside the garment you want to offer.
  * Each color has its own price, size-level stock, and image gallery.
+ * A product is offered in only the garments you list under "garments":
+ * omit the "t-shirts" or "hoodies" key entirely if that version does not exist.
  */
 const STORE_CONFIG = {
   brandName: "VOID",
@@ -26,7 +27,6 @@ const PRODUCTS = [
         colors: [
           {
             name: "BLACK",
-            price: 749,
             sizes: { S: 1, M: 0, L: 0, XL: 0 },
             images: ["assets/p1/tee/front.png", "assets/p1/tee/close_up.png", "assets/p1/tee/tshirt.png", "assets/p1/tee/back2.png"],
           }
@@ -37,7 +37,6 @@ const PRODUCTS = [
         colors: [
           {
             name: "BLACK",
-            price: 1149,
             sizes: {S: 1, M: 1, L: 1, XL: 1},
             images: [
                 "assets/p1/hoodie/front.png",
@@ -61,7 +60,6 @@ const PRODUCTS = [
         colors: [
           {
             name: "BLACK",
-            price: 899,
             sizes: { S: 1, M: 2, L: 0, XL: 1 },
             images: ["assets/p2/back.png", "assets/p2/tshirt.png"],
             fallbackImages: ["assets/p2/back.png", "assets/p2/tshirt.png"]
@@ -73,7 +71,6 @@ const PRODUCTS = [
         colors: [
           {
             name: "Pitch Black",
-            price: 1299,
             sizes: { S: 2, M: 2, L: 0, XL: 0 },
             images: ["assets/p3/back.png", "assets/p3/hoodie.png"],
             fallbackImages: ["assets/p3/back.png", "assets/p3/hoodie.png"]
@@ -96,21 +93,18 @@ const PRODUCTS = [
         colors: [
           {
             name: "Black",
-            price: 649,
             sizes: { S: 2, M: 2, L: 0, XL: 0 },
             images: ["assets/p6/front.png", "assets/p6/close.png", "assets/p6/tshirt.png"],
             fallbackImages: ["assets/p6/front.png", "assets/p6/close.png", "assets/p6/tshirt.png"]
           },
           {
             name: "White",
-            price: 649,
             sizes: { S: 2, M: 2, L: 0, XL: 0 },
             images: ["assets/p7/front.png", "assets/p7/close.png", "assets/p7/tshirt.png"],
             fallbackImages: ["assets/p7/front.png", "assets/p7/close.png", "assets/p7/tshirt.png"]
           }
         ]
-      },
-      hoodies: { price: null, colors: [] }
+      }
     }
   },
   {
@@ -126,14 +120,12 @@ const PRODUCTS = [
         colors: [
           {
             name: "Beige",
-            price: 899,
             sizes: { S: 1, M: 1, L: 0, XL: 0 },
             images: ["assets/p8/front.png", "assets/p8/close.png", "assets/p8/tshirt.png"],
             fallbackImages: ["assets/p8/front.png", "assets/p8/close.png", "assets/p8/tshirt.png"]
           }
         ]
-      },
-      hoodies: { price: null, colors: [] }
+      }
     }
   },
   {
@@ -149,14 +141,12 @@ const PRODUCTS = [
         colors: [
           {
             name: "Cyan",
-            price: 649,
             sizes: { S: 1, M: 1, L: 0, XL: 0 },
             images: ["assets/p9/front.png", "assets/p9/back.png"],
             fallbackImages: ["assets/p9/front.png", "assets/p9/back.png"]
           }
         ]
-      },
-      hoodies: { price: null, colors: [] }
+      }
     }
   }
 ];

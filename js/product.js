@@ -1,4 +1,3 @@
-
 /** VOID — Product detail page with garment/color/size selection */
 document.addEventListener("DOMContentLoaded", () => {
   const params = new URLSearchParams(window.location.search);
@@ -33,10 +32,13 @@ function renderProductPage(product) {
       product.embroidery || "Precision embroidery.";
   }
 
-  const garmentKeys = ["t-shirts", "hoodies"];
-  let selectedGarment =
-    garmentKeys.find(key => product.garments[key]?.colors?.length) ||
-    "t-shirts";
+  // Garments the product actually comes in: a garment is selectable only if
+  // it has colors configured in js/products.js. Omit a garment key there
+  // (or leave its colors empty) and its button will not be rendered.
+  const availableGarments = ["t-shirts", "hoodies"].filter(
+    key => (product.garments?.[key]?.colors || []).length > 0
+  );
+  let selectedGarment = availableGarments[0] || "t-shirts";
   let selectedColor = null;
   let selectedSize = null;
 
@@ -270,12 +272,22 @@ function renderProductPage(product) {
   }
 
   if (garmentButtons) {
-    garmentButtons.querySelectorAll("[data-garment]").forEach(button => {
-      button.classList.toggle(
-        "active",
-        button.dataset.garment === selectedGarment
-      );
+    // List only the garment versions this product is available in.
+    garmentButtons.innerHTML = availableGarments.map(key => `
+      <button
+        class="variant-btn ${key === selectedGarment ? "active" : ""}"
+        type="button"
+        data-garment="${key}"
+      >${key === "hoodies" ? "Hoodie" : "T-Shirt"}</button>
+    `).join("");
 
+    // Products offered in only one garment type don't need a selector.
+    if (availableGarments.length < 2) {
+      const selectorGroup = garmentButtons.closest(".selection-group");
+      if (selectorGroup) selectorGroup.style.display = "none";
+    }
+
+    garmentButtons.querySelectorAll("[data-garment]").forEach(button => {
       button.addEventListener("click", () => {
         selectedGarment = button.dataset.garment;
 

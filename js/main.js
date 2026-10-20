@@ -72,7 +72,7 @@ function createProductCardHTML(product) {
 
   const priceLabel = minimum === null
     ? "Price on request"
-    : `${STORE_CONFIG.currency}${minimum}${minimum !== maximum ? " +" : ""}`;
+    : `${STORE_CONFIG.currency}${minimum}${minimum !== maximum ? "" : ""}`;
 
   const url = `product.html?id=${encodeURIComponent(product.id)}`;
 
