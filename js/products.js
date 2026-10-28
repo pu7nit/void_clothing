@@ -94,13 +94,13 @@ const PRODUCTS = [
           {
             name: "Black",
             sizes: { S: 2, M: 2, L: 0, XL: 0 },
-            images: ["assets/p6/front.png", "assets/p6/close.png", "assets/p6/tshirt.png"],
+            images: ["assets/p6/front.png", "assets/p6/back.png",  "assets/p6/close.png", "assets/p6/tshirt.png", "assets/p6/tshirt_back.png"],
             fallbackImages: ["assets/p6/front.png", "assets/p6/close.png", "assets/p6/tshirt.png"]
           },
           {
             name: "White",
             sizes: { S: 2, M: 2, L: 0, XL: 0 },
-            images: ["assets/p7/front.png", "assets/p7/close.png", "assets/p7/tshirt.png"],
+            images: ["assets/p7/front.png", "assets/p7/back.png", "assets/p7/close.png", "assets/p7/tshirt.png", "assets/p7/tshirt_back.png"],
             fallbackImages: ["assets/p7/front.png", "assets/p7/close.png", "assets/p7/tshirt.png"]
           }
         ]
