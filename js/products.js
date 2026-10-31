@@ -49,10 +49,10 @@ const PRODUCTS = [
   },
   {
     id: "product-02",
-    name: "Phoenix Embroidery",
-    tagline: "Phoenix back artwork",
-    description: "240 Heavyweight oversized tee featuring an abstract phoenix motif embroidered with metallic red thread. Built for daily wear.",
-    embroidery: "Made with more than 50,000 individual stiches, taking more than 3 hours per piece.",
+    name: "to be updated",
+    tagline: "NA",
+    description: "NA to be updated",
+    embroidery: "coming soon",
     featured: true,
     garments: {
       "t-shirts": {
